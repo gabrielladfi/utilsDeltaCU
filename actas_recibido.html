@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Registros</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        tr:hover{
+            background-color: #adabec;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <table class="table">
+            <thead  class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Número de Radicación</th>
+                    <th> Actas de recibido</th>
+                    <th> Fecha de entrega </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="tramite1" onclick="seleccion_tramite('tramite1')">
+                    <td>1</td>
+                    <td>47001-2-24-001</td>
+                    <td> <a href="http:159.65.222.24:8000/deltacu/download/"  target="_blank"> Descargar Archivo </a> </td>
+                    <td>20204-06-01 00:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+
+            function respond() {
+                window.parent.postMessage("To page code", "http://mysite.com");
+            }
+
+        const seleccion_tramite = (ID)=>{
+            document.getElementById(ID).style.backgroundColor = "#adabec";
+            respond();
+            }
+            
+
+    </script>
+</body>
+</html>
