@@ -63,22 +63,20 @@ def generar_codigo_barras(num_ref):
 
     return nueva_imagen_path
 
-def crear_pdf_con_codigo_barras(imagen_path):
+def crear_pdf_con_codigo_barras(imagen_path, doc_path):
     # Crear el PDF
     pdf = FPDF(orientation='L', unit='mm', format=(28, 89))
     pdf.add_page()
     
-    # Ajustar tamaño del título
-    pdf.set_font("Arial", size=6)
-    
-    
+
     # Ajustar tamaño de la imagen del código de barras
-    pdf.image(imagen_path, x=0, y=0, w=20)
+    pdf.image(imagen_path, x=0, y=0, w=80)
     
     # Guardar el PDF en la carpeta raíz
-    pdf_output_path = "./codigo_barras.pdf"
+    pdf_output_path = f"./{doc_path}.pdf"
     pdf.output(pdf_output_path)
 # Ejemplo de uso
 num_ref = "123556789012"
 imagen_codigo_barras_path = generar_codigo_barras(num_ref)
-crear_pdf_con_codigo_barras(imagen_codigo_barras_path)
+crear_pdf_con_codigo_barras("./final.jpg", "final")
+crear_pdf_con_codigo_barras("./BaseOF_numof.jpg", "oficio")
